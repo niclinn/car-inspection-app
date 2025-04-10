@@ -12,13 +12,13 @@ export default function Home() {
   const statusLabel = (s) => ['Not Inspected', 'Inspecting', 'Inspected'][s];
 
   return (
-    <div className='p-4'>
-      <h1 className='text-2xl font-bold mb-4'>Car List</h1>
-      <ul className='space-y-2'>
+    <div style={{ padding: '20px' }}>
+      <h1 style={{ fontSize: '24px', marginBottom: '16px' }}>Car List</h1>
+      <ul style={{ listStyleType: 'none', padding: 0 }}>
         {cars.map(car => (
-          <li key={car._id} className='border p-3 rounded shadow flex justify-between items-center'>
+          <li key={car._id} style={{ border: '1px solid #ccc', padding: '12px', marginBottom: '8px', borderRadius: '4px' }}>
             <span>{car.name} - <strong>{statusLabel(car.status)}</strong></span>
-            <Link className='text-blue-500 underline' to={`/inspect/${car._id}`}>Inspect</Link>
+            <Link to={`/inspect/${car._id}`} style={{ float: 'right', color: 'blue' }}>Inspect</Link>
           </li>
         ))}
       </ul>

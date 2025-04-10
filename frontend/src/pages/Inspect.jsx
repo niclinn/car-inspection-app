@@ -9,11 +9,13 @@ export default function Inspect() {
   const [results, setResults] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:4000/api/cars').then(res => {
-      axios.get('http://localhost:4000/api/criteria').then(cRes => {
-        setCriteria(cRes.data);
-        setResults(cRes.data.map(c => ({ criteriaId: c._id, is_good: true, note: '' })));
-      });
+    axios.get('http://localhost:4000/api/criteria').then(cRes => {
+      setCriteria(cRes.data);
+      setResults(cRes.data.map(c => ({
+        criteriaId: c._id,
+        is_good: true,
+        note: ''
+      })));
     });
   }, [carId]);
 
@@ -24,42 +26,48 @@ export default function Inspect() {
   };
 
   const handleSubmit = async () => {
-    const hasErrors = results.some(r => r.is_good === false && (!r.note || r.note.trim() === ''));
-    if (hasErrors) return alert('Please add notes for all failed criteria.');
+    const hasErrors = results.some(r => !r.is_good && (!r.note || r.note.trim() === ''));
+    if (hasErrors) {
+      alert('Please provide a note for each failed criteria.');
+      return;
+    }
 
     await axios.post(`http://localhost:4000/api/inspection/${carId}`, { results });
     navigate('/');
   };
 
   return (
-    <div className='p-4'>
-      <h1 className='text-2xl font-bold mb-4'>Inspection</h1>
-      <ul className='space-y-4'>
+    <div style={{ padding: '20px' }}>
+      <h1 style={{ fontSize: '24px', marginBottom: '16px' }}>Inspect Car</h1>
+      <ul style={{ listStyleType: 'none', padding: 0 }}>
         {criteria.map((c, i) => (
-          <li key={c._id} className='border p-3 rounded'>
-            <label className='block font-medium'>{c.name}</label>
-            <div className='flex items-center gap-4'>
-              <label>
+          <li key={c._id} style={{ border: '1px solid #ccc', padding: '12px', marginBottom: '8px', borderRadius: '4px' }}>
+            <label>{c.name}</label>
+            <div>
+              <label style={{ marginRight: '10px' }}>
                 <input
-                  type='checkbox'
-                  checked={results[i]?.is_good}
-                  onChange={e => updateResult(i, 'is_good', e.target.checked)}
+                  type="checkbox"
+                  checked={results[i].is_good}
+                  onChange={(e) => updateResult(i, 'is_good', e.target.checked)}
                 /> Passed
               </label>
-              {!results[i]?.is_good && (
+              {!results[i].is_good && (
                 <input
-                  type='text'
-                  className='border p-1 flex-1'
-                  placeholder='Enter note...'
-                  value={results[i]?.note || ''}
-                  onChange={e => updateResult(i, 'note', e.target.value)}
+                  type="text"
+                  value={results[i].note}
+                  onChange={(e) => updateResult(i, 'note', e.target.value)}
+                  placeholder="Enter note..."
+                  style={{ marginTop: '5px', padding: '4px', width: '100%' }}
                 />
               )}
             </div>
           </li>
         ))}
       </ul>
-      <button className='mt-6 bg-blue-500 text-white px-4 py-2 rounded' onClick={handleSubmit}>
+      <button
+        onClick={handleSubmit}
+        style={{ marginTop: '20px', padding: '10px 16px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px' }}
+      >
         Submit Inspection
       </button>
     </div>
