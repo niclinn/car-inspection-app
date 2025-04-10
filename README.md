@@ -169,35 +169,3 @@ Payload format for inspection submission:
   }
 ]
 ```
-
----
-
-## 📸 Screenshots
-
-> *(Save screenshots in a folder called `/screenshots` in the project root if you'd like to include these)*
-
-### 🔍 Homepage – List of Cars
-
-![Car List](./screenshots/car-list.png)
-
-### ✅ Inspection Form
-
-![Inspection Form](./screenshots/inspection-form.png)
-
----
-
-## 👤 Author
-
-Built by [Your Name] as part of a Full Stack Engineer internship technical challenge.
-
----
-
-## 🧼 Optional Improvements (Future Work)
-
-- Add inspection history per car
-- Allow editing criteria via admin page
-- Add user login and role-based access
-- Style with Bootstrap or Tailwind
-- Deploy to cloud platforms (e.g., Vercel + Render)
-
----
