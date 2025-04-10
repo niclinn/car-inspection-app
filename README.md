@@ -1,10 +1,10 @@
-# 🚗 Car Inspection App (MERN Stack)
+# Car Inspection App (MERN Stack)
 
 This is a full-stack web application that allows car inspectors to view a list of cars and submit inspection results for each car based on a shared set of criteria. The app tracks whether a car has passed all checks, is in the process of being inspected, or hasn't passed at all.
 
 ---
 
-## 🧠 Overview
+## Overview
 
 This app was developed as part of a Full Stack Engineer internship homework assignment for Vucar. It is built using the **MERN stack**:
 
@@ -26,9 +26,9 @@ This app was developed as part of a Full Stack Engineer internship homework assi
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
-### ✅ Prerequisites
+### Prerequisites
 
 - [Node.js](https://nodejs.org/en/) (LTS version)
 - [MongoDB Community Server](https://www.mongodb.com/try/download/community)
@@ -37,7 +37,7 @@ This app was developed as part of a Full Stack Engineer internship homework assi
 
 ---
 
-### 📦 Installation & Setup
+### Installation & Setup
 
 #### 1. Clone the repository
 
@@ -89,9 +89,9 @@ npm start
 
 ---
 
-## 🧪 How It Works
+## How It Works
 
-### 📋 Inspection Workflow
+### Inspection Workflow
 
 1. Visit the homepage (`/`) to see all cars and their statuses
 2. Click **“Inspect”** next to any car
@@ -105,7 +105,7 @@ npm start
 
 ---
 
-## 🗃️ Project Structure
+## Project Structure
 
 ```
 car-inspection-app/
@@ -136,7 +136,7 @@ car-inspection-app/
 
 ---
 
-## ✅ Assumptions & Trade-offs
+## Assumptions & Trade-offs
 
 - Each car uses the same fixed set of 5 inspection criteria.
 - The criteria list is seeded once and not editable through the UI.
@@ -147,7 +147,7 @@ car-inspection-app/
 
 ---
 
-## 🔌 API Endpoints
+## API Endpoints
 
 | Method | Endpoint                  | Description                         |
 |--------|---------------------------|-------------------------------------|
