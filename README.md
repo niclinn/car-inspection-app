@@ -1,4 +1,4 @@
-# Car Inspection App (MERN Stack)
+# Car Inspection App
 
 This is a full-stack web application that allows car inspectors to view a list of cars and submit inspection results for each car based on a shared set of criteria. The app tracks whether a car has passed all checks, is in the process of being inspected, or hasn't passed at all.
 
@@ -33,7 +33,6 @@ This app was developed as part of a Full Stack Engineer internship homework assi
 - [Node.js](https://nodejs.org/en/) (LTS version)
 - [MongoDB Community Server](https://www.mongodb.com/try/download/community)
   - Must be running locally on default port 27017
-- (Optional) [MongoDB Compass](https://www.mongodb.com/try/download/compass) to view the database visually
 
 ---
 

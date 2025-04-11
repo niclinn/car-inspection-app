@@ -19,7 +19,7 @@ const seed = async () => {
     { name: 'Tesla Model 3' },
   ]);
 
-  console.log(`✅ Inserted ${cars.length} cars`);
+  console.log(`Inserted ${cars.length} cars`);
 
   // Add sample criteria (5 for inspection)
   const criteria = await Criteria.insertMany([
@@ -30,12 +30,12 @@ const seed = async () => {
     { name: 'Horn Works' },
   ]);
 
-  console.log(`✅ Inserted ${criteria.length} criteria`);
+  console.log(`Inserted ${criteria.length} criteria`);
 
   mongoose.disconnect();
 };
 
 seed().catch((err) => {
-  console.error('❌ Seeding error:', err);
+  console.error('Seeding error:', err);
   mongoose.disconnect();
 });
